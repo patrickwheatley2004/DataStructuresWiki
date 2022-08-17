@@ -25,6 +25,7 @@ namespace DataStructuresWiki
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadDataStructuresInformation();
+            displayData();
         }
 
         private void LoadDataStructuresInformation()
@@ -32,62 +33,62 @@ namespace DataStructuresWiki
             DataStructures[0, 0] = "Array";
             DataStructures[0, 1] = "Array";
             DataStructures[0, 2] = "Linear";
-            DataStructures[0, 3] = "Definition";
+            DataStructures[0, 3] = "An Array is a type of data structure that allows the application to hold entire sets of values at once. Arrays can also have multiple dimensions, 1D, 2D, 3D, etc. Arrays have set sizes on initialization which means the size cannot be changed. ";
 
             DataStructures[1, 0] = "Two Dimensional Array";
             DataStructures[1, 1] = "Array";
             DataStructures[1, 2] = "Linear";
-            DataStructures[1, 3] = "Definition";
+            DataStructures[1, 3] = "A 2D Array is basically having multiple arrays in one array. It is best to think of it like a table with X many rows and Y many columns. These are mostly used in databases and saves time creating multiple 1D Arrays. ";
 
             DataStructures[2, 0] = "List";
             DataStructures[2, 1] = "List";
             DataStructures[2, 2] = "Linear";
-            DataStructures[2, 3] = "Definition";
+            DataStructures[2, 3] = "A list is like an array, but the size can be changed at any time. Lists can also be multidimensional. Lists can be unordered.";
 
             DataStructures[3, 0] = "Linked list";
             DataStructures[3, 1] = "List";
             DataStructures[3, 2] = "Linear";
-            DataStructures[3, 3] = "Definition";
+            DataStructures[3, 3] = "A linked list is a list, but it is ordered. ";
 
             DataStructures[4, 0] = "Self-Balance Tree";
             DataStructures[4, 1] = "Tree";
             DataStructures[4, 2] = "Non-Linear";
-            DataStructures[4, 3] = "Definition";
+            DataStructures[4, 3] = "A Self-Balance Tree is a node-based binary search tree that automatically keeps it height small in the face of arbitrary item insertions and deletions. ";
 
             DataStructures[5, 0] = "Heap";
             DataStructures[5, 1] = "Tree";
             DataStructures[5, 2] = "Non-Linear";
-            DataStructures[5, 3] = "Definition";
+            DataStructures[5, 3] = "A heap is a specialized tree-based data structure which is essentially and almost complete tree that satisfies the heap property. These heap trees follow a specific order. ";
 
             DataStructures[6, 0] = "Binary Search Tree";
             DataStructures[6, 1] = "Tree";
             DataStructures[6, 2] = "Non-Linear";
-            DataStructures[6, 3] = "Definition";
+            DataStructures[6, 3] = "A Binary Search Tree is a rooted binary tree data structure with the key of each internal node being greater than all the keys in the respective node’s left sub tree and less than the ones in the right sub tree. ";
 
             DataStructures[7, 0] = "Graph";
             DataStructures[7, 1] = "Graphs";
             DataStructures[7, 2] = "Non-Linear";
-            DataStructures[7, 3] = "Definition";
+            DataStructures[7, 3] = "A graph is a data structure that consists of nodes and edges. Nodes are referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph. These are mainly used to solve real life problems and represent networks. ";
 
             DataStructures[8, 0] = "Set";
             DataStructures[8, 1] = "Abstract";
             DataStructures[8, 2] = "Non-Linear";
-            DataStructures[8, 3] = "Definition";
+            DataStructures[8, 3] = "A set is an abstract data type that can store unique values without any particular order. ";
 
             DataStructures[9, 0] = "Queue";
             DataStructures[9, 1] = "Abstract";
             DataStructures[9, 2] = "Linear";
-            DataStructures[9, 3] = "Defnition";
+            DataStructures[9, 3] = "A queue is a data type that stores items in an ordered and linear sequence.";
 
             DataStructures[10, 0] = "Stack";
             DataStructures[10, 1] = "Abstract";
             DataStructures[10, 2] = "Linear";
-            DataStructures[10, 3] = "Defnition";
+            DataStructures[10, 3] = "A stack is an abstract data type that holds items with two main principals: Push and Pop. The push puts a new item on to the top of the stack. The push takes the top item off the stack. ";
 
             DataStructures[11, 0] = "Hash Tabe";
             DataStructures[11, 1] = "Hash";
             DataStructures[11, 2] = "Non-Linear";
-            DataStructures[11, 3] = "Definition";
+            DataStructures[11, 3] = "A hash function is a function that can be used to map data of arbitrary size to fixed-size values. The values returned by a hash function are called hash values, hash codes, digests or just hashes. ";
         }
 
         private void btnDisplayInformation_Click(object sender, EventArgs e)
@@ -167,6 +168,7 @@ namespace DataStructuresWiki
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            // 9.7	Write the code for a Binary Search for the Name in the 2D array and display the information in the other textboxes when found, add suitable feedback if the search in not successful and clear the search textbox (do not use any built-in array methods),
             string userText = tbxSearchBar.Text;
             bool wasFound = false;
             int left = 0;
@@ -198,6 +200,8 @@ namespace DataStructuresWiki
                 MessageBox.Show(userText + " was not found!");
                 updateSS(userText + " was not found!");
             }
+            tbxSearchBar.Clear();
+            tbxSearchBar.Focus();
         }
 
         private void clearButtons()

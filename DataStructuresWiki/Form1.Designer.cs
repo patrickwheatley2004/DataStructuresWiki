@@ -55,7 +55,7 @@
             this.dataName,
             this.dataCategory});
             this.lvDataStructures.HideSelection = false;
-            this.lvDataStructures.Location = new System.Drawing.Point(130, 42);
+            this.lvDataStructures.Location = new System.Drawing.Point(211, 42);
             this.lvDataStructures.Margin = new System.Windows.Forms.Padding(2);
             this.lvDataStructures.MultiSelect = false;
             this.lvDataStructures.Name = "lvDataStructures";
@@ -91,7 +91,7 @@
             this.tbxName.Location = new System.Drawing.Point(9, 20);
             this.tbxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(118, 20);
+            this.tbxName.Size = new System.Drawing.Size(198, 20);
             this.tbxName.TabIndex = 2;
             // 
             // label1
@@ -119,7 +119,7 @@
             this.tbxCategory.Location = new System.Drawing.Point(9, 55);
             this.tbxCategory.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCategory.Name = "tbxCategory";
-            this.tbxCategory.Size = new System.Drawing.Size(118, 20);
+            this.tbxCategory.Size = new System.Drawing.Size(198, 20);
             this.tbxCategory.TabIndex = 4;
             // 
             // label3
@@ -137,7 +137,7 @@
             this.tbxStructure.Location = new System.Drawing.Point(9, 91);
             this.tbxStructure.Margin = new System.Windows.Forms.Padding(2);
             this.tbxStructure.Name = "tbxStructure";
-            this.tbxStructure.Size = new System.Drawing.Size(118, 20);
+            this.tbxStructure.Size = new System.Drawing.Size(198, 20);
             this.tbxStructure.TabIndex = 6;
             // 
             // label4
@@ -156,12 +156,12 @@
             this.tbxDefinition.Margin = new System.Windows.Forms.Padding(2);
             this.tbxDefinition.Multiline = true;
             this.tbxDefinition.Name = "tbxDefinition";
-            this.tbxDefinition.Size = new System.Drawing.Size(118, 102);
+            this.tbxDefinition.Size = new System.Drawing.Size(198, 102);
             this.tbxDefinition.TabIndex = 8;
             // 
             // tbxSearchBar
             // 
-            this.tbxSearchBar.Location = new System.Drawing.Point(130, 20);
+            this.tbxSearchBar.Location = new System.Drawing.Point(211, 20);
             this.tbxSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.tbxSearchBar.Name = "tbxSearchBar";
             this.tbxSearchBar.Size = new System.Drawing.Size(154, 20);
@@ -169,7 +169,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(288, 12);
+            this.btnSearch.Location = new System.Drawing.Point(369, 13);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 28);
@@ -184,7 +184,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 434);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(386, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(477, 22);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 456);
+            this.ClientSize = new System.Drawing.Size(477, 456);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
