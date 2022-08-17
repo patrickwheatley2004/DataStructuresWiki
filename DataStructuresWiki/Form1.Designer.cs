@@ -46,6 +46,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvDataStructures
@@ -58,7 +59,7 @@
             this.lvDataStructures.Margin = new System.Windows.Forms.Padding(2);
             this.lvDataStructures.MultiSelect = false;
             this.lvDataStructures.Name = "lvDataStructures";
-            this.lvDataStructures.Size = new System.Drawing.Size(232, 337);
+            this.lvDataStructures.Size = new System.Drawing.Size(232, 347);
             this.lvDataStructures.TabIndex = 0;
             this.lvDataStructures.UseCompatibleStateImageBehavior = false;
             this.lvDataStructures.View = System.Windows.Forms.View.Details;
@@ -76,7 +77,7 @@
             // 
             // btnDisplayInformation
             // 
-            this.btnDisplayInformation.Location = new System.Drawing.Point(9, 351);
+            this.btnDisplayInformation.Location = new System.Drawing.Point(9, 361);
             this.btnDisplayInformation.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisplayInformation.Name = "btnDisplayInformation";
             this.btnDisplayInformation.Size = new System.Drawing.Size(74, 28);
@@ -189,7 +190,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(9, 319);
+            this.btnClear.Location = new System.Drawing.Point(9, 329);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(74, 28);
@@ -200,7 +201,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(11, 255);
+            this.btnEdit.Location = new System.Drawing.Point(9, 265);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(74, 28);
@@ -211,7 +212,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(11, 287);
+            this.btnDelete.Location = new System.Drawing.Point(9, 297);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(74, 28);
@@ -220,11 +221,23 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(9, 233);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(74, 28);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 456);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnClear);
@@ -270,6 +283,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
 

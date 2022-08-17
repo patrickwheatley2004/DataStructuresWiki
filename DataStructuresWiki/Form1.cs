@@ -92,11 +92,16 @@ namespace DataStructuresWiki
 
         private void btnDisplayInformation_Click(object sender, EventArgs e)
         {
+            displayData();
+        }
+
+        private void displayData()
+        {
             // 9.8	Create a display method that will show the following information in a ListView: Name and Category
             lvDataStructures.Items.Clear();
             for (int i = 0; i < dsRows; i++)
             {
-                ListViewItem lv1 = new ListViewItem(DataStructures[i,0],0);
+                ListViewItem lv1 = new ListViewItem(DataStructures[i, 0], 0);
                 lv1.SubItems.Add(DataStructures[i, 1]);
                 lvDataStructures.Items.Add(lv1);
             }
@@ -162,6 +167,7 @@ namespace DataStructuresWiki
                         DataStructures[index, 2] = tbxStructure.Text;
                         DataStructures[index, 3] = tbxDefinition.Text;
                         updateSS("Data successfully edited.");
+                        displayData();
                     }
                     catch (Exception ex)
                     {
@@ -191,6 +197,7 @@ namespace DataStructuresWiki
                     DataStructures[index, 2] = null;
                     DataStructures[index, 3] = null;
                     updateSS(DataStructures[index, 0] + " was deleted.");
+                    displayData();
                 }
                 else if (dr == DialogResult.No)
                 {
@@ -203,6 +210,47 @@ namespace DataStructuresWiki
                 updateSS("Error, nothing selected to delete.");
             }
             
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            bool canContinute = false;
+            bool isFull = true;
+            string txtName = tbxName.Text;
+            string txtCat = tbxCategory.Text;
+            string txtStruct = tbxStructure.Text;
+            string txtDef = tbxDefinition.Text;
+            if (!string.IsNullOrEmpty(txtName) && !string.IsNullOrEmpty(txtCat) && !string.IsNullOrEmpty(txtStruct) && !string.IsNullOrEmpty(txtDef))
+            {
+                canContinute = true;
+            }
+            else
+            {
+                MessageBox.Show("ERROR: One of the textboxes; Name, Category, Structure or Definition have no text inside.");
+            }
+            if (canContinute)
+            {
+                for (int i = 0; i < dsRows; i++)
+                {
+                    if (DataStructures[i, 0] == null)
+                    {
+                        DataStructures[i, 0] = txtName;
+                        DataStructures[i, 1] = txtCat;
+                        DataStructures[i, 2] = txtStruct;
+                        DataStructures[i, 3] = txtDef;
+                        updateSS(txtName + " successfully added!");
+                        canContinute = false;
+                        isFull = false;
+                        displayData();
+                        break;
+                    }
+                }
+                if (isFull)
+                {
+                    MessageBox.Show("ERROR: The list is currently full and can't add anymore definitions to it!");
+                    updateSS("ERROR: The list is currently full and can't add anymore definitions to it!");
+                }
+            }
         }
     }
 }
