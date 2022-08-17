@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 // Patrick Wheatley
 // 11/08/2022
 namespace DataStructuresWiki
@@ -318,5 +319,93 @@ namespace DataStructuresWiki
                 }
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string dfName = "definitions.dat";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "bin file|*.bin";
+            saveFileDialog.Title = "Save A BIN file";
+            saveFileDialog.InitialDirectory = Application.StartupPath;
+            saveFileDialog.DefaultExt = "bin";
+            saveFileDialog.ShowDialog();
+            string fileName = saveFileDialog.FileName;
+            if (saveFileDialog.FileName != "")
+            {
+                SaveRecord(fileName);
+            }
+            else
+            {
+                SaveRecord(dfName);
+            }
+        }
+
+        private void SaveRecord(string saveFileName)
+        {
+            try
+            {
+                using (Stream stream = File.Open(saveFileName, FileMode.Create))
+                {
+                    //BinaryFormatter bin = new BinaryFormatter();
+                    using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
+                    {
+                        for (int x = 0; x < dsRows; x++)
+                        {
+                            for (int y = 0; y < dsCols; y++)
+                            {
+                                writer.Write(DataStructures[x, y]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Application.StartupPath;
+            openFileDialog.Filter = "BIN FILES|*.bin";
+            openFileDialog.Title = "Open a BIN file";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                OpenRecord(openFileDialog.FileName);
+            }
+        }
+
+        private void OpenRecord(string openFileName)
+        {
+            try
+            {
+                using (Stream stream = File.Open(openFileName, FileMode.Open))
+                {
+                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
+                    {
+                        {
+                            int x = 0;
+                            Array.Clear(DataStructures, 0, DataStructures.Length);
+                            while (stream.Position < stream.Length)
+                            {
+                                for (int y = 0; y < dsCols; y++)
+                                {
+                                    DataStructures[x, y] = reader.ReadString();
+                                }
+                                x++;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            displayData();
+        }
+
     }
 }

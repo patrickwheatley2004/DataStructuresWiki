@@ -47,6 +47,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvDataStructures
@@ -55,11 +57,11 @@
             this.dataName,
             this.dataCategory});
             this.lvDataStructures.HideSelection = false;
-            this.lvDataStructures.Location = new System.Drawing.Point(211, 42);
+            this.lvDataStructures.Location = new System.Drawing.Point(243, 42);
             this.lvDataStructures.Margin = new System.Windows.Forms.Padding(2);
             this.lvDataStructures.MultiSelect = false;
             this.lvDataStructures.Name = "lvDataStructures";
-            this.lvDataStructures.Size = new System.Drawing.Size(232, 347);
+            this.lvDataStructures.Size = new System.Drawing.Size(232, 411);
             this.lvDataStructures.TabIndex = 0;
             this.lvDataStructures.UseCompatibleStateImageBehavior = false;
             this.lvDataStructures.View = System.Windows.Forms.View.Details;
@@ -77,7 +79,7 @@
             // 
             // btnDisplayInformation
             // 
-            this.btnDisplayInformation.Location = new System.Drawing.Point(9, 361);
+            this.btnDisplayInformation.Location = new System.Drawing.Point(165, 233);
             this.btnDisplayInformation.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisplayInformation.Name = "btnDisplayInformation";
             this.btnDisplayInformation.Size = new System.Drawing.Size(74, 28);
@@ -91,7 +93,7 @@
             this.tbxName.Location = new System.Drawing.Point(9, 20);
             this.tbxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(198, 20);
+            this.tbxName.Size = new System.Drawing.Size(230, 20);
             this.tbxName.TabIndex = 2;
             // 
             // label1
@@ -119,7 +121,7 @@
             this.tbxCategory.Location = new System.Drawing.Point(9, 55);
             this.tbxCategory.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCategory.Name = "tbxCategory";
-            this.tbxCategory.Size = new System.Drawing.Size(198, 20);
+            this.tbxCategory.Size = new System.Drawing.Size(230, 20);
             this.tbxCategory.TabIndex = 4;
             // 
             // label3
@@ -137,7 +139,7 @@
             this.tbxStructure.Location = new System.Drawing.Point(9, 91);
             this.tbxStructure.Margin = new System.Windows.Forms.Padding(2);
             this.tbxStructure.Name = "tbxStructure";
-            this.tbxStructure.Size = new System.Drawing.Size(198, 20);
+            this.tbxStructure.Size = new System.Drawing.Size(230, 20);
             this.tbxStructure.TabIndex = 6;
             // 
             // label4
@@ -156,12 +158,12 @@
             this.tbxDefinition.Margin = new System.Windows.Forms.Padding(2);
             this.tbxDefinition.Multiline = true;
             this.tbxDefinition.Name = "tbxDefinition";
-            this.tbxDefinition.Size = new System.Drawing.Size(198, 102);
+            this.tbxDefinition.Size = new System.Drawing.Size(230, 102);
             this.tbxDefinition.TabIndex = 8;
             // 
             // tbxSearchBar
             // 
-            this.tbxSearchBar.Location = new System.Drawing.Point(211, 20);
+            this.tbxSearchBar.Location = new System.Drawing.Point(243, 20);
             this.tbxSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.tbxSearchBar.Name = "tbxSearchBar";
             this.tbxSearchBar.Size = new System.Drawing.Size(154, 20);
@@ -169,7 +171,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(369, 13);
+            this.btnSearch.Location = new System.Drawing.Point(401, 13);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 28);
@@ -181,16 +183,16 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 434);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 498);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(477, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(639, 22);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(9, 329);
+            this.btnClear.Location = new System.Drawing.Point(87, 265);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(74, 28);
@@ -201,7 +203,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(9, 265);
+            this.btnEdit.Location = new System.Drawing.Point(87, 233);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(74, 28);
@@ -212,7 +214,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(9, 297);
+            this.btnDelete.Location = new System.Drawing.Point(9, 265);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(74, 28);
@@ -232,11 +234,35 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(9, 297);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(74, 28);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(87, 297);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(74, 28);
+            this.btnLoad.TabIndex = 17;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 456);
+            this.ClientSize = new System.Drawing.Size(639, 520);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -284,6 +310,8 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 
