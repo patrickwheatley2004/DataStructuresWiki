@@ -95,10 +95,41 @@ namespace DataStructuresWiki
             displayData();
         }
 
+        private void Sort()
+        {
+            // 9.6	Write the code for a Bubble Sort method to sort the 2D array by Name ascending, ensure you use a separate swap method that passes the array element to be swapped (do not use any built-in array methods),
+            for (int i = 1; i < dsRows; i++)
+            {
+                for (int j = 0; j < dsRows - 1; j++)
+                {
+                    if (!(string.IsNullOrEmpty(DataStructures[j + 1, 0])))
+                    {
+                        if (string.Compare(DataStructures[j,0], DataStructures[j + 1, 0]) == 1)
+                        {
+                            swap(j);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void swap(int index)
+        {
+            // 9.6	Write the code for a Bubble Sort method to sort the 2D array by Name ascending, ensure you use a separate swap method that passes the array element to be swapped (do not use any built-in array methods),
+            string temp;
+            for (int i = 0; i < dsCols; i++)
+            {
+                temp = DataStructures[index, i];
+                DataStructures[index, i] = DataStructures[index + 1, i];
+                DataStructures[index + 1, i] = temp;
+            }
+        }
+
         private void displayData()
         {
             // 9.8	Create a display method that will show the following information in a ListView: Name and Category
             lvDataStructures.Items.Clear();
+            Sort();
             for (int i = 0; i < dsRows; i++)
             {
                 ListViewItem lv1 = new ListViewItem(DataStructures[i, 0], 0);
@@ -109,6 +140,7 @@ namespace DataStructuresWiki
 
         private void displayTBXInformation(int slIndex)
         {
+            // 9.9	Create a method so the user can select a definition (Name) from the ListView and all the information is displayed in the appropriate Textboxes,
             tbxName.Text = DataStructures[slIndex,0];
             tbxCategory.Text = DataStructures[slIndex,1];
             tbxStructure.Text = DataStructures[slIndex,2];
@@ -136,6 +168,36 @@ namespace DataStructuresWiki
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string userText = tbxSearchBar.Text;
+            bool wasFound = false;
+            int left = 0;
+            int right = dsRows - 1;
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+                int result = userText.CompareTo(DataStructures[mid,0]);
+
+                if (result == 0)
+                {
+                    displayTBXInformation(mid);
+                    lvDataStructures.Items[mid].Focused = true;
+                    lvDataStructures.Items[mid].Selected = true;
+                    updateSS(userText + " was found!");
+                    wasFound = true;
+                }
+                if (result > 0)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+            if (wasFound == false)
+            {
+                MessageBox.Show(userText + " was not found!");
+                updateSS(userText + " was not found!");
+            }
         }
 
         private void clearButtons()
@@ -204,7 +266,7 @@ namespace DataStructuresWiki
                     updateSS(DataStructures[index, 0] + " wasn't deleted.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error, nothing selected to delete.");
                 updateSS("Error, nothing selected to delete.");
