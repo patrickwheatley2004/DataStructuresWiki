@@ -236,7 +236,11 @@ namespace DataStructuresWiki
             try
             {
                 int index = lvDataStructures.SelectedIndices[0];
-                if (index >= 0 && index < dsRows)
+                string txtName = tbxName.Text;
+                string txtCat = tbxCategory.Text;
+                string txtStruct = tbxStructure.Text;
+                string txtDef = tbxDefinition.Text;
+                if (index >= 0 && index < dsRows && !string.IsNullOrEmpty(txtName) && !string.IsNullOrEmpty(txtCat) && !string.IsNullOrEmpty(txtStruct) && !string.IsNullOrEmpty(txtDef))
                 {
                     try
                     {
@@ -252,6 +256,11 @@ namespace DataStructuresWiki
                         MessageBox.Show("Data unsuccessfully edited\nError Message: " + ex);
                         updateSS("Data unsuccessfully edited\nError Message: " + ex);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Either one of the following textboxes are empty; Name, Category, Structure or Definition.");
+                    updateSS("Either one of the following textboxes are empty; Name, Category, Structure or Definition.");
                 }
             }
             catch (Exception)
