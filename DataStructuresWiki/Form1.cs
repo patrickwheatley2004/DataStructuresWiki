@@ -31,6 +31,7 @@ namespace DataStructuresWiki
 
         private void LoadDataStructuresInformation()
         {
+            // Default Data.
             DataStructures[0, 0] = "Array";
             DataStructures[0, 1] = "Array";
             DataStructures[0, 2] = "Linear";
@@ -122,6 +123,7 @@ namespace DataStructuresWiki
             string temp;
             for (int i = 0; i < dsCols; i++)
             {
+                // swapping the intended data.
                 temp = DataStructures[index, i];
                 DataStructures[index, i] = DataStructures[index + 1, i];
                 DataStructures[index + 1, i] = temp;
@@ -135,6 +137,8 @@ namespace DataStructuresWiki
             Sort();
             for (int i = 0; i < dsRows; i++)
             {
+                // Integrated the sort into the display method. 
+                // Displaying the data into the correct columns.
                 ListViewItem lv1 = new ListViewItem(DataStructures[i, 0], 0);
                 lv1.SubItems.Add(DataStructures[i, 1]);
                 lvDataStructures.Items.Add(lv1);
@@ -155,6 +159,7 @@ namespace DataStructuresWiki
             // 9.9	Create a method so the user can select a definition (Name) from the ListView and all the information is displayed in the appropriate Textboxes.
             try
             {
+                // Using a try catch in-case nothing gets selected.
                 displayTBXInformation(lvDataStructures.SelectedIndices[0]);
             }
             catch (Exception)
@@ -183,6 +188,7 @@ namespace DataStructuresWiki
 
                 if (result == 0)
                 {
+                    // Displaying the information and highlighting the listview. 
                     displayTBXInformation(mid);
                     lvDataStructures.Items[mid].Focused = true;
                     lvDataStructures.Items[mid].Selected = true;
@@ -203,6 +209,7 @@ namespace DataStructuresWiki
                 MessageBox.Show(userText + " was not found!");
                 updateSS(userText + " was not found!");
             }
+            // Clearing the searchbar and focusing to it so the user can easily search for something again. 
             tbxSearchBar.Clear();
             tbxSearchBar.Focus();
         }
