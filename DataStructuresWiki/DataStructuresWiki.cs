@@ -12,9 +12,9 @@ using System.IO;
 // 11/08/2022
 namespace DataStructuresWiki
 {
-    public partial class Form1 : Form
+    public partial class DataStructuresWiki : Form
     {
-        public Form1()
+        public DataStructuresWiki()
         {
             InitializeComponent();
         }
@@ -25,8 +25,8 @@ namespace DataStructuresWiki
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Calling the function to display default Information.
-            LoadDataStructuresInformation();
+            
+            //LoadDataStructuresInformation();
             displayData();
         }
 
@@ -207,7 +207,7 @@ namespace DataStructuresWiki
             }
             if (wasFound == false)
             {
-                MessageBox.Show(userText + " was not found!");
+                MessageBox.Show(userText + " was not found!", "Binary Search",MessageBoxButtons.OK, MessageBoxIcon.Question);
                 updateSS(userText + " was not found!");
             }
             // Clearing the searchbar and focusing to it so the user can easily search for something again. 
@@ -253,19 +253,19 @@ namespace DataStructuresWiki
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Data unsuccessfully edited\nError Message: " + ex);
+                        MessageBox.Show("Data unsuccessfully edited\nError Message: " + ex, "Edit Definition", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         updateSS("Data unsuccessfully edited\nError Message: " + ex);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Either one of the following textboxes are empty; Name, Category, Structure or Definition.");
+                    MessageBox.Show("Either one of the following textboxes are empty; Name, Category, Structure or Definition.", "Edit Definition", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     updateSS("Either one of the following textboxes are empty; Name, Category, Structure or Definition.");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error, nothing selected to edit.");
+                MessageBox.Show("Error, nothing selected to edit.", "Edit Definition", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 updateSS("Error, nothing selected to edit.");
             }
         }
@@ -278,7 +278,7 @@ namespace DataStructuresWiki
                 int index = lvDataStructures.SelectedIndices[0];
                 string text = DataStructures[index, 0];
 
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DataStructures[index, 0] + "?", "Are you sure you want to delete?", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DataStructures[index, 0] + "?", "Are you sure you want to delete?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
                     DataStructures[index, 0] = null;
@@ -295,7 +295,7 @@ namespace DataStructuresWiki
             }
             catch (Exception)
             {
-                MessageBox.Show("Error, nothing selected to delete.");
+                MessageBox.Show("Error, nothing selected to delete.", "Deleting Definition", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 updateSS("Error, nothing selected to delete.");
             }
             
@@ -316,7 +316,7 @@ namespace DataStructuresWiki
             }
             else
             {
-                MessageBox.Show("ERROR: One of the textboxes; Name, Category, Structure or Definition have no text inside.");
+                MessageBox.Show("ERROR: One of the textboxes; Name, Category, Structure or Definition have no text inside.","Add New Definition",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             if (canContinute)
             {
@@ -337,7 +337,7 @@ namespace DataStructuresWiki
                 }
                 if (isFull)
                 {
-                    MessageBox.Show("ERROR: The list is currently full and can't add anymore definitions to it!");
+                    MessageBox.Show("ERROR: The list is currently full and can't add anymore definitions to it!","Add New Definition", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     updateSS("ERROR: The list is currently full and can't add anymore definitions to it!");
                 }
             }
@@ -349,10 +349,10 @@ namespace DataStructuresWiki
             Sort();
             string dfName = "definitions.dat";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "bin file|*.bin";
-            saveFileDialog.Title = "Save A BIN file";
+            saveFileDialog.Filter = "DAT FILE|*.dat";
+            saveFileDialog.Title = "Save A DAT file";
             saveFileDialog.InitialDirectory = Application.StartupPath;
-            saveFileDialog.DefaultExt = "bin";
+            saveFileDialog.DefaultExt = "dat";
             saveFileDialog.ShowDialog();
             string fileName = saveFileDialog.FileName;
             if (saveFileDialog.FileName != "")
@@ -386,7 +386,7 @@ namespace DataStructuresWiki
             }
             catch (IOException ex)
             {
-                MessageBox.Show("ERROR: " + ex.ToString());
+                MessageBox.Show("ERROR: " + ex.ToString(), "Saving Definition Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -395,8 +395,8 @@ namespace DataStructuresWiki
             // 9.11	Create a LOAD button that will read the information from a binary file called definitions.dat into the 2D array, ensure the user has the option to select an alternative file. Use a file stream and BinaryReader to complete this task.
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Application.StartupPath;
-            openFileDialog.Filter = "BIN FILES|*.bin";
-            openFileDialog.Title = "Open a BIN file";
+            openFileDialog.Filter = "DAT FILES|*.dat";
+            openFileDialog.Title = "Open a DAT file";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 OpenRecord(openFileDialog.FileName);
@@ -429,7 +429,7 @@ namespace DataStructuresWiki
             }
             catch (IOException ex)
             {
-                MessageBox.Show("ERROR: " + ex.ToString());
+                MessageBox.Show("ERROR: " + ex.ToString(), "Loading A .DAT File", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             displayData();
         }

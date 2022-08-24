@@ -1,6 +1,6 @@
 ﻿namespace DataStructuresWiki
 {
-    partial class Form1
+    partial class DataStructuresWiki
     {
         /// <summary>
         /// Required designer variable.
@@ -257,7 +257,7 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // Form1
+            // DataStructuresWiki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,8 +282,8 @@
             this.Controls.Add(this.btnDisplayInformation);
             this.Controls.Add(this.lvDataStructures);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "DataStructuresWiki";
+            this.Text = "Data Structures Wiki";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
