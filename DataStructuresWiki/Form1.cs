@@ -25,6 +25,7 @@ namespace DataStructuresWiki
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Calling the function to display default Information.
             LoadDataStructuresInformation();
             displayData();
         }
