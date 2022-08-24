@@ -427,6 +427,7 @@ namespace DataStructuresWiki
 
         private void lvDataStructures_DoubleClick(object sender, EventArgs e)
         {
+            // Double click on the ListView to clear the textboxes.
             clearButtons();
         }
     }
