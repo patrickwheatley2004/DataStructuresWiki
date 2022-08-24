@@ -51,7 +51,7 @@ namespace DataStructuresWiki
             DataStructures[3, 0] = "Linked list";
             DataStructures[3, 1] = "List";
             DataStructures[3, 2] = "Linear";
-            DataStructures[3, 3] = "A linked list is a linear data structure in which the elements stored follow a particular order. Like a list information can be added to it at anytime. ";
+            DataStructures[3, 3] = "A linked list is a linear data structure in which the elements stored follow a particular order. Like a list information can be added to it at anytime.";
 
             DataStructures[4, 0] = "Self-Balance Tree";
             DataStructures[4, 1] = "Tree";
