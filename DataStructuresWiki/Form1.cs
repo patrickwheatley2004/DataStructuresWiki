@@ -94,6 +94,7 @@ namespace DataStructuresWiki
 
         private void btnDisplayInformation_Click(object sender, EventArgs e)
         {
+            // 9.8	Create a display method that will show the following information in a ListView: Name and Category,
             displayData();
         }
 
@@ -108,7 +109,7 @@ namespace DataStructuresWiki
                     {
                         if (string.Compare(DataStructures[j,0], DataStructures[j + 1, 0]) == 1)
                         {
-                            swap(j);
+                            swap(j); // swaps the data.
                         }
                     }
                 }
@@ -151,13 +152,14 @@ namespace DataStructuresWiki
 
         private void lvDataStructures_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 9.9	Create a method so the user can select a definition (Name) from the ListView and all the information is displayed in the appropriate Textboxes.
             try
             {
                 displayTBXInformation(lvDataStructures.SelectedIndices[0]);
             }
             catch (Exception)
             {
-
+                updateSS("Nothing selected to display.");
             }          
         }
 
@@ -174,7 +176,7 @@ namespace DataStructuresWiki
             bool wasFound = false;
             int left = 0;
             int right = dsRows - 1;
-            while (left <= right)
+            while (left <= right) 
             {
                 int mid = left + (right - left) / 2;
                 int result = userText.CompareTo(DataStructures[mid,0]);
@@ -212,6 +214,7 @@ namespace DataStructuresWiki
             tbxCategory.Clear();
             tbxStructure.Clear();
             tbxDefinition.Clear();
+            tbxName.Focus();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -256,6 +259,8 @@ namespace DataStructuresWiki
             try
             {
                 int index = lvDataStructures.SelectedIndices[0];
+                string text = DataStructures[index, 0];
+
                 DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DataStructures[index, 0] + "?", "Are you sure you want to delete?", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
@@ -263,12 +268,12 @@ namespace DataStructuresWiki
                     DataStructures[index, 1] = null;
                     DataStructures[index, 2] = null;
                     DataStructures[index, 3] = null;
-                    updateSS(DataStructures[index, 0] + " was deleted.");
+                    updateSS(text + " was deleted.");
                     displayData();
                 }
                 else if (dr == DialogResult.No)
                 {
-                    updateSS(DataStructures[index, 0] + " wasn't deleted.");
+                    updateSS(text + " wasn't deleted.");
                 }
             }
             catch (Exception)
@@ -281,6 +286,7 @@ namespace DataStructuresWiki
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // 9.2	Create an ADD button that will store the information from the 4 text boxes into the 2D array,
             bool canContinute = false;
             bool isFull = true;
             string txtName = tbxName.Text;
@@ -322,6 +328,8 @@ namespace DataStructuresWiki
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // 9.10	Create a SAVE button so the information from the 2D array can be written into a binary file called definitions.dat which is sorted by Name, ensure the user has the option to select an alternative file. Use a file stream and BinaryWriter to create the file.
+            Sort();
             string dfName = "definitions.dat";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "bin file|*.bin";
@@ -342,11 +350,11 @@ namespace DataStructuresWiki
 
         private void SaveRecord(string saveFileName)
         {
+            // 9.10	Create a SAVE button so the information from the 2D array can be written into a binary file called definitions.dat which is sorted by Name, ensure the user has the option to select an alternative file. Use a file stream and BinaryWriter to create the file.
             try
             {
                 using (Stream stream = File.Open(saveFileName, FileMode.Create))
-                {
-                    //BinaryFormatter bin = new BinaryFormatter();
+                {;
                     using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                     {
                         for (int x = 0; x < dsRows; x++)
@@ -361,12 +369,13 @@ namespace DataStructuresWiki
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("ERROR: " + ex.ToString());
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            // 9.11	Create a LOAD button that will read the information from a binary file called definitions.dat into the 2D array, ensure the user has the option to select an alternative file. Use a file stream and BinaryReader to complete this task.
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Application.StartupPath;
             openFileDialog.Filter = "BIN FILES|*.bin";
@@ -379,6 +388,7 @@ namespace DataStructuresWiki
 
         private void OpenRecord(string openFileName)
         {
+            // 9.11	Create a LOAD button that will read the information from a binary file called definitions.dat into the 2D array, ensure the user has the option to select an alternative file. Use a file stream and BinaryReader to complete this task.
             try
             {
                 using (Stream stream = File.Open(openFileName, FileMode.Open))
@@ -402,10 +412,14 @@ namespace DataStructuresWiki
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("ERROR: " + ex.ToString());
             }
             displayData();
         }
 
+        private void lvDataStructures_DoubleClick(object sender, EventArgs e)
+        {
+            clearButtons();
+        }
     }
 }

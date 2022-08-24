@@ -66,6 +66,7 @@
             this.lvDataStructures.UseCompatibleStateImageBehavior = false;
             this.lvDataStructures.View = System.Windows.Forms.View.Details;
             this.lvDataStructures.SelectedIndexChanged += new System.EventHandler(this.lvDataStructures_SelectedIndexChanged);
+            this.lvDataStructures.DoubleClick += new System.EventHandler(this.lvDataStructures_DoubleClick);
             // 
             // dataName
             // 
@@ -183,7 +184,7 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 498);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 463);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
             this.statusStrip1.Size = new System.Drawing.Size(639, 22);
@@ -260,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 520);
+            this.ClientSize = new System.Drawing.Size(639, 485);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnAdd);
