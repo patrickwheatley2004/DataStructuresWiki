@@ -26,7 +26,7 @@ namespace DataStructuresWiki
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            LoadDataStructuresInformation();
+            // LoadDataStructuresInformation();
             displayData();
         }
 
@@ -171,8 +171,8 @@ namespace DataStructuresWiki
 
         private void updateSS(string input)
         {
-            statusStrip1.Items.Clear();
-            statusStrip1.Items.Add(input);
+            ssInformation.Items.Clear();
+            ssInformation.Items.Add(input);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

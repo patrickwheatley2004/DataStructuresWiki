@@ -42,7 +42,7 @@
             this.tbxDefinition = new System.Windows.Forms.TextBox();
             this.tbxSearchBar = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ssInformation = new System.Windows.Forms.StatusStrip();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -181,15 +181,15 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // statusStrip1
+            // ssInformation
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 463);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(505, 22);
-            this.statusStrip1.TabIndex = 12;
-            this.statusStrip1.Text = "statusStrip1";
+            this.ssInformation.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ssInformation.Location = new System.Drawing.Point(0, 463);
+            this.ssInformation.Name = "ssInformation";
+            this.ssInformation.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.ssInformation.Size = new System.Drawing.Size(505, 22);
+            this.ssInformation.TabIndex = 12;
+            this.ssInformation.Text = "statusStrip1";
             // 
             // btnClear
             // 
@@ -268,7 +268,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.ssInformation);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbxSearchBar);
             this.Controls.Add(this.label4);
@@ -306,7 +306,7 @@
         private System.Windows.Forms.TextBox tbxDefinition;
         private System.Windows.Forms.TextBox tbxSearchBar;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip ssInformation;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
